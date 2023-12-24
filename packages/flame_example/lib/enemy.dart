@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_example/bullet.dart';
 import 'package:flame_example/explosion.dart';
 import 'package:flame_example/game.dart';
@@ -52,6 +53,7 @@ class Enemy extends SpriteAnimationComponent
     if (other is Bullet) {
       removeFromParent();
       other.removeFromParent();
+      FlameAudio.play('d.mp3');
       game.add(Explosion(position: position));
     }
   }

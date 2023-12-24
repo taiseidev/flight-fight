@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_example/game.dart';
 
 class Bullet extends SpriteAnimationComponent
@@ -14,6 +15,7 @@ class Bullet extends SpriteAnimationComponent
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    FlameAudio.bgm.play('shot.mp3');
 
     animation = await game.loadSpriteAnimation(
       'bullet.png',

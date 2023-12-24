@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_example/bullet.dart';
 import 'package:flame_example/enemy.dart';
 import 'package:flame_example/explosion.dart';
@@ -69,6 +70,8 @@ class Player extends SpriteAnimationComponent
       removeFromParent();
       other.removeFromParent();
       game.add(Explosion(position: position));
+      FlameAudio.play('dead.mp3');
+      FlameAudio.bgm.stop();
     }
   }
 }
